@@ -1,3 +1,8 @@
+// In Class Assignment 05
+// Group22_InClass05
+// Stephanie Lee Karp
+// Ken Stanley
+
 package edu.uncc.inclass05.models;
 
 import java.io.Serializable;
