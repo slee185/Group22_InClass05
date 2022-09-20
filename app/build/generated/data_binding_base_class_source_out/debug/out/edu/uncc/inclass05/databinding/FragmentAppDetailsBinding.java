@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -23,13 +24,31 @@ public final class FragmentAppDetailsBinding implements ViewBinding {
   public final ConstraintLayout frameLayout2;
 
   @NonNull
-  public final ListView listViewAppDetails;
+  public final ListView listViewAppDetailsGenres;
+
+  @NonNull
+  public final TextView textViewAppName;
+
+  @NonNull
+  public final TextView textViewArtistName;
+
+  @NonNull
+  public final TextView textViewGenres;
+
+  @NonNull
+  public final TextView textViewReleaseDate;
 
   private FragmentAppDetailsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ConstraintLayout frameLayout2, @NonNull ListView listViewAppDetails) {
+      @NonNull ConstraintLayout frameLayout2, @NonNull ListView listViewAppDetailsGenres,
+      @NonNull TextView textViewAppName, @NonNull TextView textViewArtistName,
+      @NonNull TextView textViewGenres, @NonNull TextView textViewReleaseDate) {
     this.rootView = rootView;
     this.frameLayout2 = frameLayout2;
-    this.listViewAppDetails = listViewAppDetails;
+    this.listViewAppDetailsGenres = listViewAppDetailsGenres;
+    this.textViewAppName = textViewAppName;
+    this.textViewArtistName = textViewArtistName;
+    this.textViewGenres = textViewGenres;
+    this.textViewReleaseDate = textViewReleaseDate;
   }
 
   @Override
@@ -61,14 +80,39 @@ public final class FragmentAppDetailsBinding implements ViewBinding {
     missingId: {
       ConstraintLayout frameLayout2 = (ConstraintLayout) rootView;
 
-      id = R.id.listViewAppDetails;
-      ListView listViewAppDetails = ViewBindings.findChildViewById(rootView, id);
-      if (listViewAppDetails == null) {
+      id = R.id.listViewAppDetailsGenres;
+      ListView listViewAppDetailsGenres = ViewBindings.findChildViewById(rootView, id);
+      if (listViewAppDetailsGenres == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewAppName;
+      TextView textViewAppName = ViewBindings.findChildViewById(rootView, id);
+      if (textViewAppName == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewArtistName;
+      TextView textViewArtistName = ViewBindings.findChildViewById(rootView, id);
+      if (textViewArtistName == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewGenres;
+      TextView textViewGenres = ViewBindings.findChildViewById(rootView, id);
+      if (textViewGenres == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewReleaseDate;
+      TextView textViewReleaseDate = ViewBindings.findChildViewById(rootView, id);
+      if (textViewReleaseDate == null) {
         break missingId;
       }
 
       return new FragmentAppDetailsBinding((ConstraintLayout) rootView, frameLayout2,
-          listViewAppDetails);
+          listViewAppDetailsGenres, textViewAppName, textViewArtistName, textViewGenres,
+          textViewReleaseDate);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

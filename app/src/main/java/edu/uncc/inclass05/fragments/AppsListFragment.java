@@ -32,6 +32,7 @@ public class AppsListFragment extends Fragment {
     private static final String ARG_PARAM_CATEGORY = "ARG_PARAM_CATEGORY";
 
     private String mCategory;
+
     private ArrayList<DataServices.App> apps;
 
     public AppsListFragment() {
@@ -70,8 +71,20 @@ public class AppsListFragment extends Fragment {
 
         binding.listViewAppsList.setAdapter(new AppAdapter(requireActivity(), R.layout.apps_list_app_row, apps));
         binding.listViewAppsList.setOnItemClickListener((parent, v, position, id) -> {
-
+            mListener.sendSelectedApp(apps.get(position));
         });
+    }
+
+    AppsListListener mListener;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mListener = (AppsListListener) context;
+    }
+
+    public interface AppsListListener {
+        void sendSelectedApp(DataServices.App app);
     }
 
     public static class AppAdapter extends ArrayAdapter<DataServices.App> {

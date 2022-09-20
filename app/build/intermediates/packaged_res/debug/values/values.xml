@@ -8,6 +8,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_categories_view_welcome">Welcome</string>
+    <string name="app_details_view_genres">Genres</string>
     <string name="app_name">InClass05</string>
     <string name="app_name_app_details">App Details</string>
     <string name="app_name_app_list">%s</string>

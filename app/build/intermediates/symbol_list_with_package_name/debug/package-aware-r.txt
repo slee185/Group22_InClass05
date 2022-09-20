@@ -2764,7 +2764,7 @@ id line3
 id linear
 id listMode
 id listViewAppCategories
-id listViewAppDetails
+id listViewAppDetailsGenres
 id listViewAppsList
 id list_item
 id masked
@@ -2960,6 +2960,10 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textViewAppName
+id textViewArtistName
+id textViewGenres
+id textViewReleaseDate
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3228,6 +3232,7 @@ string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string androidx_startup
 string app_categories_view_welcome
+string app_details_view_genres
 string app_name
 string app_name_app_details
 string app_name_app_list

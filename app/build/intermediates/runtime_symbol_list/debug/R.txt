@@ -2763,7 +2763,7 @@ int id line3 0x7f0800f2
 int id linear 0x7f0800f3
 int id listMode 0x7f0800f4
 int id listViewAppCategories 0x7f0800f5
-int id listViewAppDetails 0x7f0801eb
+int id listViewAppDetailsGenres 0x7f0801f0
 int id listViewAppsList 0x7f0801ec
 int id list_item 0x7f0800f6
 int id masked 0x7f0800f7
@@ -2959,6 +2959,10 @@ int id textSpacerNoButtons 0x7f0801b4
 int id textSpacerNoTitle 0x7f0801b5
 int id textStart 0x7f0801b6
 int id textTop 0x7f0801b7
+int id textViewAppName 0x7f0801f1
+int id textViewArtistName 0x7f0801f2
+int id textViewGenres 0x7f0801f3
+int id textViewReleaseDate 0x7f0801f4
 int id text_input_end_icon 0x7f0801b8
 int id text_input_error_icon 0x7f0801b9
 int id text_input_start_icon 0x7f0801ba
@@ -3227,6 +3231,7 @@ int string abc_shareactionprovider_share_with_application 0x7f0e0019
 int string abc_toolbar_collapse_description 0x7f0e001a
 int string androidx_startup 0x7f0e001b
 int string app_categories_view_welcome 0x7f0e001c
+int string app_details_view_genres 0x7f0e007f
 int string app_name 0x7f0e001d
 int string app_name_app_details 0x7f0e007c
 int string app_name_app_list 0x7f0e007d
