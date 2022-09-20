@@ -21,11 +21,14 @@ public class AppsListFragment extends Fragment {
 
     FragmentAppsListBinding binding;
 
+    private static final String ARG_PARAM_CATEGORY = "ARG_PARAM_CATEGORY";
 
+    private String mCategory;
 
-    public static AppsListFragment newInstance(String param1, String param2) {
+    public static AppsListFragment newInstance(String category) {
         AppsListFragment fragment = new AppsListFragment();
         Bundle args = new Bundle();
+        args.putString(ARG_PARAM_CATEGORY, category);
         fragment.setArguments(args);
         return fragment;
     }
@@ -34,6 +37,7 @@ public class AppsListFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+            mCategory = getArguments().getString(ARG_PARAM_CATEGORY);
         }
     }
 
