@@ -14,12 +14,20 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import edu.uncc.inclass05.R;
 import edu.uncc.inclass05.databinding.FragmentAppCategoriesBinding;
+import edu.uncc.inclass05.models.DataServices;
 
 public class AppCategoriesFragment extends Fragment {
+
     FragmentAppCategoriesBinding binding;
+
+    ListView listViewAppCategories;
+    ArrayAdapter<String> adapter;
 
     public AppCategoriesFragment() {
         // Required empty public constructor
@@ -41,6 +49,18 @@ public class AppCategoriesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        listViewAppCategories = view.findViewById(R.id.listViewAppCategories);
+
+        adapter = new ArrayAdapter<>(requireActivity().getApplicationContext(), android.R.layout.simple_list_item_1, android.R.id.text1, DataServices.getAppCategories());
+        listViewAppCategories.setAdapter(adapter);
+
+
+        listViewAppCategories.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
 
     }
 }
