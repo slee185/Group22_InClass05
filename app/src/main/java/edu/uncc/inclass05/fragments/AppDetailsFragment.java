@@ -1,3 +1,7 @@
+// InClass 05
+// AppDetailsFragment.java
+// Ken Stanley & Stephanie Karp
+
 package edu.uncc.inclass05.fragments;
 
 import android.os.Bundle;

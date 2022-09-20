@@ -1,3 +1,7 @@
+// InClass 05
+// MainActivity.java
+// Ken Stanley & Stephanie Karp
+
 package edu.uncc.inclass05;
 
 import androidx.appcompat.app.AppCompatActivity;
