@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">InClass05</string>
     <string name="app_categories_view_welcome">Welcome</string>
+    <string name="app_name_categories">App Categories</string>
+    <string name="app_name_app_list">%s</string>
+    <string name="app_name_app_details">App Details</string>
 </resources>
+

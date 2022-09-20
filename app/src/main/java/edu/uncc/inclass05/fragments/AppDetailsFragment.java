@@ -25,10 +25,6 @@ import edu.uncc.inclass05.models.DataServices;
 public class AppDetailsFragment extends Fragment {
     FragmentAppDetailsBinding binding;
 
-    ListView listViewAppDetails;
-
-    ArrayAdapter<String> adapter;
-
     public AppDetailsFragment() {
         // Required empty public constructor
     }
@@ -49,9 +45,9 @@ public class AppDetailsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        listViewAppDetails = view.findViewById(R.id.listViewAppDetails);
+        ListView listViewAppDetails = view.findViewById(R.id.listViewAppDetails);
 
-        adapter = new ArrayAdapter<>(requireActivity().getApplicationContext(), android.R.layout.simple_list_item_1, android.R.id.text1, DataServices.getAppCategories());
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireActivity().getApplicationContext(), android.R.layout.simple_list_item_1, android.R.id.text1, DataServices.getAppCategories());
         listViewAppDetails.setAdapter(adapter);
 
         listViewAppDetails.setOnItemClickListener(new AdapterView.OnItemClickListener() {

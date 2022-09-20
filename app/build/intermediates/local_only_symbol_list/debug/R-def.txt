@@ -1,0 +1,37 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color purple_200
+color purple_500
+color purple_700
+color teal_200
+color teal_700
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id appRowArtistTextView
+id appRowNameTextView
+id appRowReleaseDateTextView
+id containerView
+id frameLayout
+id frameLayout2
+id frameLayout3
+id listViewAppCategories
+id listViewAppDetails
+id listViewAppsList
+id viewWelcome
+layout activity_main
+layout apps_list_app_row
+layout fragment_app_categories
+layout fragment_app_details
+layout fragment_apps_list
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_categories_view_welcome
+string app_name
+string app_name_app_details
+string app_name_app_list
+string app_name_categories
+style Theme.InClass05
+xml backup_rules
+xml data_extraction_rules

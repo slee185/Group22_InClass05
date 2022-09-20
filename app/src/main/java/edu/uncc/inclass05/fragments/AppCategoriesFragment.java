@@ -5,6 +5,7 @@
 
 package edu.uncc.inclass05.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 import edu.uncc.inclass05.R;
 import edu.uncc.inclass05.databinding.FragmentAppCategoriesBinding;
 import edu.uncc.inclass05.models.DataServices;
@@ -26,9 +29,6 @@ public class AppCategoriesFragment extends Fragment {
 
     FragmentAppCategoriesBinding binding;
 
-    ListView listViewAppCategories;
-    ArrayAdapter<String> adapter;
-
     public AppCategoriesFragment() {
         // Required empty public constructor
     }
@@ -36,6 +36,7 @@ public class AppCategoriesFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requireActivity().setTitle(R.string.app_name_categories);
     }
 
     @Override
@@ -49,18 +50,26 @@ public class AppCategoriesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        listViewAppCategories = view.findViewById(R.id.listViewAppCategories);
+        ArrayList<String> categories = DataServices.getAppCategories();
 
-        adapter = new ArrayAdapter<>(requireActivity().getApplicationContext(), android.R.layout.simple_list_item_1, android.R.id.text1, DataServices.getAppCategories());
-        listViewAppCategories.setAdapter(adapter);
+        ListView listViewAppCategories = binding.listViewAppCategories;
+        listViewAppCategories.setAdapter(new ArrayAdapter<>(requireActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, categories));
 
 
-        listViewAppCategories.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
+        listViewAppCategories.setOnItemClickListener((parent, v, position, id) -> {
+            mListener.sendSelectedCategory(categories.get(position));
         });
+    }
 
+    AppCategoriesListener mListener;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mListener = (AppCategoriesListener) context;
+    }
+
+    public interface AppCategoriesListener {
+        void sendSelectedCategory(String category);
     }
 }

@@ -1,7 +1,6 @@
-// In Class Assignment 05
-// Group22_InClass05
-// Stephanie Lee Karp
-// Ken Stanley
+// InClass 05
+// DataServices.java
+// Ken Stanley & Stephanie Karp
 
 package edu.uncc.inclass05.models;
 
@@ -170,8 +169,8 @@ public class DataServices {
     }
 
     public static class App  implements Serializable {
-        ArrayList<String> genres;
-        String id, artistId, artistName, artworkUrl100, name, releaseDate, url;
+        public ArrayList<String> genres;
+        public String id, artistId, artistName, artworkUrl100, name, releaseDate, url;
 
         public App(ArrayList<String> genres, String id, String artistId, String artistName, String artworkUrl100, String name, String releaseDate, String url) {
             this.genres = genres;
