@@ -49,10 +49,7 @@ public class AppCategoriesFragment extends Fragment {
         ListView listViewAppCategories = binding.listViewAppCategories;
         listViewAppCategories.setAdapter(new ArrayAdapter<>(requireActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, categories));
 
-
-        listViewAppCategories.setOnItemClickListener((parent, v, position, id) -> {
-            mListener.sendSelectedCategory(categories.get(position));
-        });
+        listViewAppCategories.setOnItemClickListener((parent, v, position, id) -> mListener.sendSelectedCategory(categories.get(position)));
     }
 
     AppCategoriesListener mListener;

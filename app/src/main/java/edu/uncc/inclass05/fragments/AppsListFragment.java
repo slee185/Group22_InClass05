@@ -66,9 +66,7 @@ public class AppsListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.listViewAppsList.setAdapter(new AppAdapter(requireActivity(), R.layout.apps_list_app_row, apps));
-        binding.listViewAppsList.setOnItemClickListener((parent, v, position, id) -> {
-            mListener.sendSelectedApp(apps.get(position));
-        });
+        binding.listViewAppsList.setOnItemClickListener((parent, v, position, id) -> mListener.sendSelectedApp(apps.get(position)));
     }
 
     AppsListListener mListener;
