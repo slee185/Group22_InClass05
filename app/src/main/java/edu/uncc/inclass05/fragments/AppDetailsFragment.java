@@ -62,5 +62,9 @@ public class AppDetailsFragment extends Fragment {
 
         ListView listViewAppDetailsGenres = binding.listViewAppDetailsGenres;
         listViewAppDetailsGenres.setAdapter(new ArrayAdapter<>(requireActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, genres));
+
+        binding.textViewAppName.setText(app.name);
+        binding.textViewArtistName.setText(app.artistName);
+        binding.textViewReleaseDate.setText(app.releaseDate);
     }
 }
