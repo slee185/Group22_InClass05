@@ -30,8 +30,6 @@ public class AppsListFragment extends Fragment {
 
     private static final String ARG_PARAM_CATEGORY = "ARG_PARAM_CATEGORY";
 
-    private String mCategory;
-
     private ArrayList<DataServices.App> apps;
 
     public AppsListFragment() {
@@ -51,7 +49,7 @@ public class AppsListFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
-            mCategory = getArguments().getString(ARG_PARAM_CATEGORY);
+            String mCategory = getArguments().getString(ARG_PARAM_CATEGORY);
             apps = DataServices.getAppsByCategory(mCategory);
             requireActivity().setTitle(mCategory);
         }
