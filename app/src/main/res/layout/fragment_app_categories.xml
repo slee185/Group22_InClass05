@@ -8,25 +8,27 @@
     tools:context=".fragments.AppCategoriesFragment" >
 
     <TextView
-        android:id="@+id/categoriesWelcomeTextView"
+        android:id="@+id/viewWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/categories_welcome_text_view"
+        android:layout_marginTop="24dp"
+        android:text="@string/app_categories_view_welcome"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/categoriesCategoriesListView"
+        android:id="@+id/listViewAppCategories"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categoriesWelcomeTextView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/viewWelcome" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

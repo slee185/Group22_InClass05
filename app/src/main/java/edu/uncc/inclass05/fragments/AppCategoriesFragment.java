@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -24,6 +25,7 @@ import edu.uncc.inclass05.databinding.FragmentAppCategoriesBinding;
 import edu.uncc.inclass05.models.DataServices;
 
 public class AppCategoriesFragment extends Fragment {
+
     FragmentAppCategoriesBinding binding;
 
     @Override
@@ -33,8 +35,8 @@ public class AppCategoriesFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
         binding = FragmentAppCategoriesBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -45,20 +47,21 @@ public class AppCategoriesFragment extends Fragment {
 
         ArrayList<String> categories = DataServices.getAppCategories();
 
-        ListView categoriesCategoriesListView = binding.categoriesCategoriesListView;
+        ListView listViewAppCategories = binding.listViewAppCategories;
         categoriesCategoriesListView.setAdapter(new ArrayAdapter<>(
                 requireActivity(),
-                android.R.layout.simple_list_item_1,
+        listViewAppCategories.setAdapter(new ArrayAdapter<>(requireActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, categories));
                 android.R.id.text1,
                 categories
-        ));
 
-        categoriesCategoriesListView.setOnItemClickListener((parent, v, position, id) -> {
+
+        listViewAppCategories.setOnItemClickListener((parent, v, position, id) -> {
             mListener.sendSelectedCategory(categories.get(position));
         });
     }
 
     AppCategoriesListener mListener;
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);

@@ -31,7 +31,12 @@ public class AppsListFragment extends Fragment {
     private static final String ARG_PARAM_CATEGORY = "ARG_PARAM_CATEGORY";
 
     private String mCategory;
+
     private ArrayList<DataServices.App> apps;
+
+    public AppsListFragment() {
+        // Required empty public constructor
+    }
 
     public static AppsListFragment newInstance(String category) {
         AppsListFragment fragment = new AppsListFragment();
@@ -44,6 +49,7 @@ public class AppsListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mCategory = getArguments().getString(ARG_PARAM_CATEGORY);
             apps = DataServices.getAppsByCategory(mCategory);
@@ -52,8 +58,7 @@ public class AppsListFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentAppsListBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -65,10 +70,26 @@ public class AppsListFragment extends Fragment {
         binding.listListListView.setAdapter(new AppAdapter(requireActivity(), R.layout.apps_list_app_row, apps));
         binding.listListListView.setOnItemClickListener((parent, v, position, id) -> {
 
+        binding.listViewAppsList.setAdapter(new AppAdapter(requireActivity(), R.layout.apps_list_app_row, apps));
+        binding.listViewAppsList.setOnItemClickListener((parent, v, position, id) -> {
+            mListener.sendSelectedApp(apps.get(position));
         });
     }
 
+    AppsListListener mListener;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mListener = (AppsListListener) context;
+    }
+
+    public interface AppsListListener {
+        void sendSelectedApp(DataServices.App app);
+    }
+
     public static class AppAdapter extends ArrayAdapter<DataServices.App> {
+
         public AppAdapter(@NonNull Context context, int resource, @NonNull List<DataServices.App> objects) {
             super(context, resource, objects);
         }
