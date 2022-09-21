@@ -32,10 +32,6 @@ public class AppDetailsFragment extends Fragment {
 
     private DataServices.App app;
 
-    public AppDetailsFragment() {
-        // Required empty public constructor
-    }
-
     public static AppDetailsFragment newInstance(DataServices.App app) {
         AppDetailsFragment fragment = new AppDetailsFragment();
         Bundle args = new Bundle();
