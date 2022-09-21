@@ -28,14 +28,12 @@ public class AppDetailsFragment extends Fragment {
 
     private static final String ARG_PARAM_APP = "ARG_PARAM_APP";
 
-    private String mApp;
-
     private DataServices.App app;
 
     public static AppDetailsFragment newInstance(DataServices.App app) {
         AppDetailsFragment fragment = new AppDetailsFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM_APP, app.toString());
+        args.putSerializable(ARG_PARAM_APP, app);
         fragment.setArguments(args);
         return fragment;
     }
@@ -44,9 +42,7 @@ public class AppDetailsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mApp = getArguments().getString(ARG_PARAM_APP);
-            // TO DO: pull selected app
-            // app = ;
+            app = (DataServices.App) getArguments().getSerializable(ARG_PARAM_APP);
             requireActivity().setTitle(R.string.app_name_app_details);
         }
     }
