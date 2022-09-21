@@ -1,7 +1,6 @@
-// In Class Assignment 05
-// Group22_InClass05
-// Stephanie Lee Karp
-// Ken Stanley
+// InClass 05
+// MainActivity.java
+// Ken Stanley & Stephanie Karp
 
 package edu.uncc.inclass05;
 
@@ -17,6 +16,7 @@ import edu.uncc.inclass05.models.DataServices;
 
 public class MainActivity extends AppCompatActivity implements AppCategoriesFragment.AppCategoriesListener, AppsListFragment.AppsListListener {
     ActivityMainBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

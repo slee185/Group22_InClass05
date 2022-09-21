@@ -1,7 +1,6 @@
-// In Class Assignment 05
-// Group22_InClass05
-// Stephanie Lee Karp
-// Ken Stanley
+// InClass 05
+// AppsListFragment.java
+// Ken Stanley & Stephanie Karp
 
 package edu.uncc.inclass05.fragments;
 
@@ -31,8 +30,6 @@ public class AppsListFragment extends Fragment {
 
     private static final String ARG_PARAM_CATEGORY = "ARG_PARAM_CATEGORY";
 
-    private String mCategory;
-
     private ArrayList<DataServices.App> apps;
 
     public AppsListFragment() {
@@ -52,7 +49,7 @@ public class AppsListFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
-            mCategory = getArguments().getString(ARG_PARAM_CATEGORY);
+            String mCategory = getArguments().getString(ARG_PARAM_CATEGORY);
             apps = DataServices.getAppsByCategory(mCategory);
             requireActivity().setTitle(mCategory);
         }
@@ -68,11 +65,8 @@ public class AppsListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         binding.listViewAppsList.setAdapter(new AppAdapter(requireActivity(), R.layout.apps_list_app_row, apps));
-        binding.listViewAppsList.setOnItemClickListener((parent, v, position, id) -> {
-            mListener.sendSelectedApp(apps.get(position));
-        });
+        binding.listViewAppsList.setOnItemClickListener((parent, v, position, id) -> mListener.sendSelectedApp(apps.get(position)));
     }
 
     AppsListListener mListener;
@@ -110,7 +104,7 @@ public class AppsListFragment extends Fragment {
             appRowArtistTextView.setText(app.artistName);
             appRowReleaseDateTextView.setText(app.releaseDate);
 
-            return  convertView;
+            return convertView;
         }
     }
 }
