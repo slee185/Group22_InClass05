@@ -1,7 +1,6 @@
-// In Class Assignment 05
-// Group22_InClass05
-// Stephanie Lee Karp
-// Ken Stanley
+// InClass 05
+// AppDetailsFragment.java
+// Ken Stanley & Stephanie Karp
 
 package edu.uncc.inclass05.fragments;
 
@@ -14,7 +13,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -30,18 +28,12 @@ public class AppDetailsFragment extends Fragment {
 
     private static final String ARG_PARAM_APP = "ARG_PARAM_APP";
 
-    private String mApp;
-
     private DataServices.App app;
-
-    public AppDetailsFragment() {
-        // Required empty public constructor
-    }
 
     public static AppDetailsFragment newInstance(DataServices.App app) {
         AppDetailsFragment fragment = new AppDetailsFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM_APP, app.toString());
+        args.putSerializable(ARG_PARAM_APP, app);
         fragment.setArguments(args);
         return fragment;
     }
@@ -50,9 +42,7 @@ public class AppDetailsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mApp = getArguments().getString(ARG_PARAM_APP);
-            // TO DO: pull selected app
-            // app = ;
+            app = (DataServices.App) getArguments().getSerializable(ARG_PARAM_APP);
             requireActivity().setTitle(R.string.app_name_app_details);
         }
     }
@@ -72,5 +62,9 @@ public class AppDetailsFragment extends Fragment {
 
         ListView listViewAppDetailsGenres = binding.listViewAppDetailsGenres;
         listViewAppDetailsGenres.setAdapter(new ArrayAdapter<>(requireActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, genres));
+
+        binding.textViewAppName.setText(app.name);
+        binding.textViewArtistName.setText(app.artistName);
+        binding.textViewReleaseDate.setText(app.releaseDate);
     }
 }

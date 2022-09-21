@@ -1,7 +1,6 @@
-// In Class Assignment 05
-// Group22_InClass05
-// Stephanie Lee Karp
-// Ken Stanley
+// InClass 05
+// AppCategoriesFragment.java
+// Ken Stanley & Stephanie Karp
 
 package edu.uncc.inclass05.fragments;
 
@@ -15,7 +14,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -28,10 +26,6 @@ import edu.uncc.inclass05.models.DataServices;
 public class AppCategoriesFragment extends Fragment {
 
     FragmentAppCategoriesBinding binding;
-
-    public AppCategoriesFragment() {
-        // Required empty public constructor
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,10 +49,7 @@ public class AppCategoriesFragment extends Fragment {
         ListView listViewAppCategories = binding.listViewAppCategories;
         listViewAppCategories.setAdapter(new ArrayAdapter<>(requireActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, categories));
 
-
-        listViewAppCategories.setOnItemClickListener((parent, v, position, id) -> {
-            mListener.sendSelectedCategory(categories.get(position));
-        });
+        listViewAppCategories.setOnItemClickListener((parent, v, position, id) -> mListener.sendSelectedCategory(categories.get(position)));
     }
 
     AppCategoriesListener mListener;
