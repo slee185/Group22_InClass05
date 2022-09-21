@@ -67,9 +67,6 @@ public class AppsListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.listListListView.setAdapter(new AppAdapter(requireActivity(), R.layout.apps_list_app_row, apps));
-        binding.listListListView.setOnItemClickListener((parent, v, position, id) -> {
-
         binding.listViewAppsList.setAdapter(new AppAdapter(requireActivity(), R.layout.apps_list_app_row, apps));
         binding.listViewAppsList.setOnItemClickListener((parent, v, position, id) -> {
             mListener.sendSelectedApp(apps.get(position));

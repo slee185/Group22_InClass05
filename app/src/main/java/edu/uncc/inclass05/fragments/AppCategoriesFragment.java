@@ -48,11 +48,7 @@ public class AppCategoriesFragment extends Fragment {
         ArrayList<String> categories = DataServices.getAppCategories();
 
         ListView listViewAppCategories = binding.listViewAppCategories;
-        categoriesCategoriesListView.setAdapter(new ArrayAdapter<>(
-                requireActivity(),
         listViewAppCategories.setAdapter(new ArrayAdapter<>(requireActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, categories));
-                android.R.id.text1,
-                categories
 
 
         listViewAppCategories.setOnItemClickListener((parent, v, position, id) -> {
